@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact</title>
+<style>
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+    color: #333;
+}
+
+/* Navbar */
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 50px;
+  background: linear-gradient(90deg, #044069, #03406b);
+  color:white;
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:1000;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+header h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links ul li a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #34c2c7;
+}
+
+.menu {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.close-btn {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgba(4,64,105,0.95);
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+    z-index: 999;
+}
+
+.mobile-menu.show {
+    transform: translateY(0);
+}
+
+.mobile-menu li a {
+    font-size: 24px;
+    color: white;
+}
+
+
+@media(max-width:768px){
+  .menu { display:block; }
+  .nav-links ul.desktop-menu { display:none; }
+}
+
+.contacts {
+    max-width:650px;
+    margin:120px auto 60px auto;
+    padding:35px;
+    border-radius:20px;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity:0; transform:translateY(30px); }
+    to { opacity:1; transform:translateY(0); }
+}
+
+.contacts h2 {
+    text-align:center;
+    color:#6a1b9a;
+    font-size:36px;
+    margin-bottom:20px;
+}
+
+.contacts p {
+    text-align:center;
+    margin-bottom:30px;
+    color:#4a148c;
+    font-size:18px;
+}
+
+.contact-details {
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.contact-details label {
+    font-weight:bold;
+    color:#6a1b9a;
+}
+
+.contact-details input,
+.contact-details textarea {
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:1rem;
+}
+
+.contact-details textarea {
+    resize: vertical;
+    height:120px;
+}
+
+.btns {
+    margin:20px auto;
+    background-color:#6a1b9a;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:12px;
+    font-size:1.1rem;
+    cursor:pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btns:hover {
+    background-color:#8e24aa;
+    transform: scale(1.05);
+}
+
+footer {
+    text-align:center;
+    padding:25px;
+    background-color:#6a1b9a;
+    color:white;
+    font-size:15px;
+}
+footer a {
+    color:white;
+    margin:0 10px;
+    transition: color 0.3s ease;
+}
+footer a:hover {
+    color:#ffeb3b;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="logo">GoMoney</h1>
+  <div class="nav-links">
+    <button class="menu" id="menu-btn">☰</button>
+    <ul class="mobile-menu" id="menu">
+      <li class="close-li"><button class="close-btn" id="close-btn">✖</button></li>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="simulation.html">Simulation</a></li>
+      <li><a href="contct.html">Contact</a></li>
+      <li><a href="Aide.html">Aide / FAQ</a></li>
+    </ul>
+    <ul class="desktop-menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="simulation.html">Simulation</a></li>
+      <li><a href="contct.html">Contact</a></li>
+      <li><a href="Aide.html">Aide / FAQ</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="contacts">
+    <h2>Contactez-Nous</h2>
+    <p>Pour toute question ou assistance, n'hésitez pas à nous contacter :</p>
+    <div class="contact-details">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Votre email">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Votre message"></textarea>
+        <button class="btns">Envoyer</button>
+    </div>
+</div>
+
+<footer>
+    <p>© 2024 GoMoney. Tous droits réservés. 
+    <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a></p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById('menu-btn');
+const closeBtn = document.getElementById('close-btn');
+const menu = document.getElementById('menu');
+
+menuBtn.addEventListener('click', ()=>{ menu.classList.add('show'); });
+closeBtn.addEventListener('click', ()=>{ menu.classList.remove('show'); });
+</script>
+</body>
+</html>

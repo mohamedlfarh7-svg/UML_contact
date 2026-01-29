@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Résultat - GoMoney</title>
+<link rel="stylesheet" href="style.css">
+<style>
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background:#f4f7fb;
+    color:#333;
+    line-height:1.6;
+    scroll-behavior:smooth;
+}
+
+header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 50px;
+    background: linear-gradient(90deg, #044069, #03406b);
+    color:white;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-size:28px;
+    font-weight:700;
+}
+
+.nav-links {
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.nav-links ul {
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+.nav-links ul li a {
+    color:white;
+    text-decoration:none;
+    padding:5px 10px;
+    border-radius:8px;
+    transition:0.3s;
+    font-weight:600;
+}
+
+.nav-links ul li a:hover {
+    background: rgba(255,255,255,0.1);
+    color:#34c2c7;
+}
+
+.menu {
+    display:none;
+    font-size:30px;
+    background:none;
+    border:none;
+    color:white;
+    cursor:pointer;
+}
+
+.close-btn {
+    font-size:30px;
+    background:none;
+    border:none;
+    color:white;
+    cursor:pointer;
+    position:absolute;
+    top:20px;
+    right:20px;
+}
+
+.mobile-menu {
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    position:fixed;
+    top:0;
+    left:0;
+    height:100vh;
+    width:100%;
+    background:rgba(4,64,105,0.95);
+    transform:translateY(-100%);
+    transition:transform 0.5s ease;
+    z-index:999;
+}
+
+.mobile-menu.show {
+    transform:translateY(0);
+}
+
+.mobile-menu li a {
+    font-size:24px;
+    color:white;
+}
+
+section {
+    padding:120px 20px 50px 20px;
+    max-width:800px;
+    margin:0 auto;
+}
+
+h2 {
+    margin-bottom:20px;
+    font-size:32px;
+    color:#044069;
+    text-align:center;
+}
+
+#result {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 40px 30px;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border-left: 6px solid #34c2c7;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#result:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+#result p {
+    font-size: 1.15rem;
+    margin: 15px 0;
+    color: #555;
+}
+
+#result strong {
+    color: #0288d1;
+    font-weight: 600;
+}
+
+.btn {
+    display: inline-block;
+    margin: 40px auto 20px auto;
+    background: linear-gradient(135deg, #34c2c7, #0288d1);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #0288d1, #03406b);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(90deg, #03406b, #044069);
+    color: white;
+    font-size: 15px;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+}
+
+footer a {
+    color: #34c2c7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="logo">GoMoney</h1>
+  <div class="nav-links">
+    <button class="menu" id="menu-btn">☰</button>
+    <ul class="mobile-menu" id="menu">
+      <li class="close-li"><button class="close-btn" id="close-btn">✖</button></li>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="simulation.html">Simulation</a></li>
+      <li><a href="contct.html">Contact</a></li>
+      <li><a href="Aide.html">Aide / FAQ</a></li>
+    </ul>
+    <ul class="desktop-menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="simulation.html">Simulation</a></li>
+      <li><a href="contct.html">Contact</a></li>
+      <li><a href="Aide.html">Aide / FAQ</a></li>
+    </ul>
+  </div>
+</header>
+
+<section>
+<h2>Résultat de votre simulation</h2>
+<div id="result"></div>
+</section>
+
+<footer>
+<p>© 2024 GoMoney. Tous droits réservés.</p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById('menu-btn');
+const closeBtn = document.getElementById('close-btn');
+const menu = document.getElementById('menu');
+menuBtn.addEventListener('click', ()=>{ menu.classList.add('show'); });
+closeBtn.addEventListener('click', ()=>{ menu.classList.remove('show'); });
+
+const typePret = localStorage.getItem("typePret");
+const dureePret = localStorage.getItem("dureePret");
+const tauxInteret = parseFloat(localStorage.getItem("tauxInteret"));
+const mensualite = parseFloat(localStorage.getItem("mensualite"));
+
+document.getElementById("result").innerHTML = `
+  <p>Type de prêt : <strong>${typePret}</strong></p>
+  <p>Durée : <strong>${dureePret} ans</strong></p>
+  <p>Taux d’intérêt : <strong>${(tauxInteret*100).toFixed(1)}%</strong></p>
+  <p>Mensualité estimée : <strong>${mensualite.toFixed(2)} DH/mois</strong></p>
+  <p>Décision : <strong>${localStorage.getItem("decision")}</strong></p>
+  <p>Salaire mensuel : <strong>${localStorage.getItem("salaire")} DH</strong></p>
+`;
+</script>
+</body>
+</html>

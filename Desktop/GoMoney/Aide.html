@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoMoney - FAQ</title>
+<style>
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    padding-top: 80px;
+    background:#f4f7fb;
+    color:#333;
+    line-height:1.6;
+    scroll-behavior:smooth;
+}
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 50px;
+  background: linear-gradient(90deg, #044069, #03406b);
+  color:white;
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:1000;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+header h1 {
+  font-size:28px;
+  font-weight:700;
+}
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.nav-links ul {
+  display:flex;
+  gap:20px;
+  list-style:none;
+}
+.nav-links ul li a {
+  color:white;
+  text-decoration:none;
+  padding:5px 10px;
+  border-radius:8px;
+  transition:0.3s;
+  font-weight:600;
+}
+.nav-links ul li a:hover {
+  background: rgba(255,255,255,0.1);
+  color:#34c2c7;
+}
+.menu {
+  display:none;
+  font-size:30px;
+  background:none;
+  border:none;
+  color:white;
+  cursor:pointer;
+}
+.close-btn {
+  font-size:30px;
+  background:none;
+  border:none;
+  color:white;
+  cursor:pointer;
+  position:absolute;
+  top:20px;
+  right:20px;
+}
+.mobile-menu {
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:30px;
+  position:fixed;
+  top:0;
+  left:0;
+  height:100vh;
+  width:100%;
+  background:rgba(4,64,105,0.95);
+  transform:translateY(-100%);
+  transition:transform 0.5s ease;
+  z-index:999;
+}
+.mobile-menu.show { transform:translateY(0); }
+.mobile-menu li a { font-size:24px; color:white; }
+section { padding:140px 20px 50px 20px; max-width:900px; margin:0 auto; }
+
+.faq-card {
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+  animation: fadeIn 1s ease-out;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+@keyframes fadeIn { from { opacity:0; transform: translateY(20px);} to { opacity:1; transform: translateY(0);} }
+
+.faq-card h2 {
+  text-align:center;
+  color:#03406b;
+  font-size:36px;
+  margin-bottom:30px;
+}
+.faq-card h3 {
+  color:#03406b;
+  font-size:20px;
+  margin-top:20px;
+  cursor:pointer;
+  padding-left:40px;
+  position:relative;
+  transition: color 0.3s;
+}
+.faq-card h3::before {
+  content: "❓";
+  position:absolute;
+  left:0;
+  top:0;
+  font-size:24px;
+}
+.faq-card h3:hover { color:#34c2c7; }
+.faq-card p {
+  margin:10px 0 20px 0;
+  line-height:1.7;
+  color:#555;
+  max-height:0;
+  overflow:hidden;
+  padding-left:40px;
+  transition:max-height 0.5s ease;
+}
+.faq-card h3.active + p { max-height:500px; }
+
+footer {
+  text-align:center;
+  padding:30px 20px;
+  background: linear-gradient(90deg,#03406b,#044069);
+  color:white;
+  font-size:15px;
+  box-shadow:0 -5px 20px rgba(0,0,0,0.2);
+}
+footer a { color:#34c2c7; text-decoration:none; margin:0 10px; transition:0.3s; }
+footer a:hover { color:#ffffff; text-decoration:underline; }
+
+@media(max-width:768px){
+  .menu{display:block;}
+  .nav-links ul.desktop-menu{display:none;}
+  section{padding:140px 15px 50px 15px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="logo">GoMoney</h1>
+  <div class="nav-links">
+    <button class="menu" id="menu-btn">☰</button>
+    <ul class="mobile-menu" id="menu">
+      <li class="close-li"><button class="close-btn" id="close-btn">✖</button></li>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="simulation.html">Simulation</a></li>
+      <li><a href="contct.html">Contact</a></li>
+      <li><a href="Aide.html">Aide / FAQ</a></li>
+    </ul>
+    <ul class="desktop-menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="simulation.html">Simulation</a></li>
+      <li><a href="contct.html">Contact</a></li>
+      <li><a href="Aide.html">Aide / FAQ</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="faq-card">
+  <h2>Foire Aux Questions (FAQ)</h2>
+
+  <h3>1. Comment utiliser l'outil de simulation de prêt ?</h3>
+  <p>Rendez-vous sur la page "Simulation", entrez votre salaire, type de prêt, montant et durée, puis cliquez sur "Calculer les Mensualités".</p>
+
+  <h3>2. Quels types de prêts puis-je simuler ?</h3>
+  <p>Prêts personnels, immobiliers (maison, appartement, terrain) et pour petites entreprises.</p>
+
+  <h3>3. Comment sont calculées les mensualités ?</h3>
+  <p>Selon le montant du prêt, la durée et le taux d'intérêt correspondant au type de prêt choisi.</p>
+
+  <h3>4. Puis-je modifier mes informations après avoir soumis la simulation ?</h3>
+  <p>Oui, revenez à la page de simulation pour modifier les informations et recalculer les mensualités.</p>
+
+  <h3>5. Qui puis-je contacter pour plus d'aide ?</h3>
+  <p>Contactez notre équipe via la page "Contact" pour toute assistance.</p>
+</section>
+
+<footer>
+<p>© 2024 GoMoney. Tous droits réservés. 
+<a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a></p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById('menu-btn');
+const closeBtn = document.getElementById('close-btn');
+const menu = document.getElementById('menu');
+menuBtn.addEventListener('click', ()=>{ menu.classList.add('show'); });
+closeBtn.addEventListener('click', ()=>{ menu.classList.remove('show'); });
+
+const questions = document.querySelectorAll('.faq-card h3');
+questions.forEach(q => {
+  q.addEventListener('click', ()=>{
+    q.classList.toggle('active');
+  });
+});
+</script>
+</body>
+</html>
