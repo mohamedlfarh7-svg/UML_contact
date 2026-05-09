@@ -59,7 +59,7 @@ class ParfumController extends Controller
             'price' => 'required|numeric',
             'quantity' => 'required|integer',
             'category' => 'required',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $data = $request->only(['name', 'price', 'quantity', 'category']);

@@ -37,10 +37,15 @@
     <div class="flex min-h-screen">
         <aside class="w-72 bg-white hidden lg:flex flex-col border-r border-slate-100 sticky top-0 h-screen">
             <div class="p-10 text-2xl font-black tracking-tighter italic uppercase">
-                Luxe<span class="text-blue-600">.</span>
+                Elegy<span class="text-blue-600">.</span>
             </div>
             
             <nav class="flex-1 px-6 space-y-2">
+                <a href="{{ route('welcome') }}" 
+                    class="flex items-center gap-4 px-6 py-4 rounded-2xl font-bold transition-all {{ request()->routeIs('welcome') ? 'bg-blue-600 text-white shadow-lg shadow-blue-100' : 'text-slate-400 hover:text-blue-600 hover:bg-slate-50' }}">
+                    <i class="ph ph-house-line text-xl"></i>
+                    Accueil
+                </a>
                 <a href="{{ route('dashboard') }}" 
                     class="flex items-center gap-4 px-6 py-4 rounded-2xl font-bold transition-all {{ request()->routeIs('dashboard') ? 'bg-blue-600 text-white shadow-lg shadow-blue-100' : 'text-slate-400 hover:text-blue-600 hover:bg-slate-50' }}">
                     <i class="ph ph-sparkle text-xl"></i>

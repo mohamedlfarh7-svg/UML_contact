@@ -13,10 +13,15 @@
     <div class="flex min-h-screen">
         <aside class="w-72 bg-white hidden lg:flex flex-col border-r border-slate-100 sticky top-0 h-screen">
             <div class="p-10 text-2xl font-black tracking-tighter italic uppercase">
-                Luxe<span class="text-blue-600">.</span>
+                Elegy<span class="text-blue-600">.</span>
             </div>
             
             <nav class="flex-1 px-6 space-y-2">
+                <a href="{{ route('welcome') }}" 
+                    class="flex items-center gap-4 px-6 py-4 rounded-2xl font-bold transition-all {{ request()->routeIs('welcome') ? 'bg-blue-600 text-white shadow-lg shadow-blue-100' : 'text-slate-400 hover:text-blue-600 hover:bg-slate-50' }}">
+                    <i class="ph ph-house-line text-xl"></i>
+                    Accueil
+                </a>
                 <a href="{{ route('dashboard') }}" 
                     class="flex items-center gap-4 px-6 py-4 rounded-2xl font-bold transition-all {{ request()->routeIs('dashboard') ? 'bg-blue-600 text-white shadow-lg shadow-blue-100' : 'text-slate-400 hover:text-blue-600 hover:bg-slate-50' }}">
                     <i class="ph ph-sparkle text-xl"></i>
@@ -84,6 +89,15 @@
             </header>
 
             <div class="w-full max-w-2xl bg-white rounded-[3rem] p-10 shadow-[0_20px_50px_rgba(0,0,0,0.02)] border border-slate-50">
+                @if ($errors->any())
+    <div class="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-xl">
+        <ul class="list-disc list-inside text-red-600 text-xs font-bold uppercase tracking-widest">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
                 <form action="{{ route('parfums.update', $parfum->id) }}" method="POST" enctype="multipart/form-data" class="space-y-8">
                     @csrf
                     @method('PUT') <div class="space-y-2">
@@ -118,7 +132,7 @@
                                 <div class="border-2 border-dashed border-slate-200 rounded-xl py-4 text-center group-hover:border-blue-200 transition-all">
                                     <span class="text-[9px] text-slate-400 font-black uppercase tracking-widest">Changer la photo</span>
                                 </div>
-                                <input type="file" name="image" class="absolute inset-0 opacity-0 cursor-pointer">
+                                <input type="file" name="image" accept=".jpg,.jpeg,.png" class="absolute inset-0 opacity-0 cursor-pointer">
                             </div>
                         </div>
                     </div>

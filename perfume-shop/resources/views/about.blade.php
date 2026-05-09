@@ -12,10 +12,15 @@
     <div class="flex min-h-screen">
         <aside class="w-72 bg-white hidden lg:flex flex-col border-r border-slate-100 sticky top-0 h-screen">
             <div class="p-10 text-2xl font-black tracking-tighter italic uppercase">
-                Luxe<span class="text-blue-600">.</span>
+                Elegy<span class="text-blue-600">.</span>
             </div>
             
             <nav class="flex-1 px-6 space-y-2">
+                <a href="{{ route('welcome') }}" 
+                    class="flex items-center gap-4 px-6 py-4 rounded-2xl font-bold transition-all {{ request()->routeIs('welcome') ? 'bg-blue-600 text-white shadow-lg shadow-blue-100' : 'text-slate-400 hover:text-blue-600 hover:bg-slate-50' }}">
+                    <i class="ph ph-house-line text-xl"></i>
+                    Accueil
+                </a>
                 <a href="{{ route('dashboard') }}" 
                     class="flex items-center gap-4 px-6 py-4 rounded-2xl font-bold transition-all {{ request()->routeIs('dashboard') ? 'bg-blue-600 text-white shadow-lg shadow-blue-100' : 'text-slate-400 hover:text-blue-600 hover:bg-slate-50' }}">
                     <i class="ph ph-sparkle text-xl"></i>
@@ -83,17 +88,90 @@
 
         <main class="flex-1 overflow-y-auto">
             
-            <section class="relative h-[60vh] flex items-center justify-center text-center px-6 overflow-hidden">
-                <div class="absolute inset-0 bg-[#1B2559] opacity-[0.03] -z-10"></div>
-                <div class="space-y-4">
-                    <span class="text-[10px] font-black uppercase tracking-[0.5em] text-blue-600">Maison de Haute Parfumerie</span>
-                    <h1 class="text-7xl md:text-8xl font-black italic uppercase tracking-tighter leading-none">
-                        L'art du <br> <span class="text-blue-600">Prestige.</span>
-                    </h1>
-                    <p class="max-w-xl mx-auto text-slate-500 font-medium text-lg pt-4">Plus qu'une fragrance, une signature invisible qui définit qui vous êtes.</p>
+            <section class="relative py-24 lg:py-40 bg-[#fff] overflow-hidden">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+            
+            <!-- 1. Visual Side: Image with floating element -->
+            <div class="w-full lg:w-1/2 relative group">
+                <!-- Decorative Gold Frame -->
+                <div class="absolute -top-6 -left-6 w-32 h-32 border-t-2 border-l-2 border-amber-500/30 z-0"></div>
+                
+                <!-- Main High-Quality Image -->
+                <div class="relative z-10 w-full aspect-[4/5] overflow-hidden shadow-[30px_30px_80px_rgba(0,0,0,0.1)]">
+                    <img src="https://mir-s3-cdn-cf.behance.net/projects/404/44a9fa214739275.Y3JvcCwyMTYwLDE2ODksMCwzODQ.png" 
+                         alt="Dior Craftsmanship" 
+                         class="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-110">
+                    
+                    <!-- Text Overlay on Image -->
+                    <div class="absolute bottom-10 left-10 text-white/90">
+                        <p class="text-[10px] font-black uppercase tracking-[0.5em] mb-2">Heritage</p>
+                        <p class="text-3xl font-serif italic italic text-blue-400">Depuis 1947</p>
+                    </div>
                 </div>
-            </section>
 
+                <!-- Floating Product Detail Image -->
+                <div class="absolute -bottom-10 -right-8 w-1/2 aspect-square hidden md:block border-[15px] border-white shadow-2xl z-20 overflow-hidden">
+                    <img src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwa6685d14/Y0997147/Y0997147_C099700674_E02_RHC.jpg?sw=800" 
+                         alt="Dior Bottle Detail" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- 2. Content Side -->
+            <div class="w-full lg:w-1/2 space-y-12">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <span class="h-[1px] w-12 bg-blue-500"></span>
+                        <span class="text-blue-600 text-[11px] font-black uppercase tracking-[0.6em]">L'Essence de l'Exception</span>
+                    </div>
+                    
+                    <h2 class="text-5xl md:text-7xl font-serif text-slate-900 leading-[1.1] tracking-tight">
+                        Une Signature <br> 
+                        <span class="italic font-light text-slate-400">Sans Compromis.</span>
+                    </h2>
+                </div>
+
+                <div class="space-y-8">
+                    <p class="text-slate-500 text-lg md:text-xl font-light leading-relaxed max-w-lg">
+                        Plus qu’un parfum, Dior Homme Intense est une déclaration d’élégance. Un mélange noble d’<span class="text-slate-900 font-bold">Iris</span>, de bois de cèdre et de vétiver qui capture l'esprit du luxe moderne.
+                    </p>
+
+                    <!-- Quote Block -->
+                    <blockquote class="border-l-4 border-blue-500 pl-8 py-2">
+                        <p class="text-slate-900 font-serif italic text-2xl leading-relaxed">
+                            "Le parfum est le complément indispensable de la personnalité féminine, c’est la touche finale d’une robe."
+                        </p>
+                        <cite class="text-[10px] uppercase tracking-widest text-slate-400 mt-4 block font-bold">— Christian Dior</cite>
+                    </blockquote>
+                </div>
+
+                <!-- Stats / Features -->
+                <div class="grid grid-cols-2 gap-12 pt-12 border-t border-slate-100">
+                    <div>
+                        <span class="text-3xl font-serif text-slate-900">Rare</span>
+                        <p class="text-[10px] uppercase tracking-widest text-slate-400 mt-2 font-black">Ingrédients Nobles</p>
+                    </div>
+                    <div>
+                        <span class="text-3xl font-serif text-slate-900">Intense</span>
+                        <p class="text-[10px] uppercase tracking-widest text-slate-400 mt-2 font-black">Sillage Inoubliable</p>
+                    </div>
+                </div>
+
+                <!-- Modern Link -->
+                <div class="pt-6">
+                    <a href="#" class="group inline-flex items-center gap-6 text-[11px] font-black uppercase tracking-[0.4em] text-slate-900">
+                        Explorer l'Histoire
+                        <span class="relative w-12 h-[1px] bg-slate-900 transition-all duration-500 group-hover:w-24 overflow-hidden">
+                             <span class="absolute inset-0 bg-blue-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
             <section class="py-24 px-12 bg-white rounded-[4rem] mx-6 shadow-sm border border-slate-50">
                 <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                     <div class="relative">
@@ -154,15 +232,7 @@
                 </div>
             </section>
 
-            <section class="py-24 bg-[#1B2559] text-white text-center rounded-t-[5rem]">
-                <div class="max-w-3xl mx-auto space-y-8">
-                    <h2 class="text-5xl font-black italic uppercase tracking-tighter">Prêt à trouver votre sillage ?</h2>
-                    <p class="text-slate-400 font-medium">Explorez notre collection de fragrances iconiques et laissez votre empreinte.</p>
-                    <a href="{{ route('home') }}" class="inline-block px-12 py-6 bg-white text-[#1B2559] rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 hover:text-white transition-all shadow-2xl">
-                        Découvrir la Boutique
-                    </a>
-                </div>
-            </section>
+            
         </main>
     </div>
 </body>

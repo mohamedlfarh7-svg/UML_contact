@@ -6,21 +6,35 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
+// 1. الصفحة التقديمية (الـ Landing Page هي اللي غتبان فـ http://127.0.0.1:8000/)
+Route::get('/', function () {
+    return view('welcome'); // هادي صفحة الترحيب اللي صاوبنا فيها الديزاين الفخم
+})->name('welcome');
 
-Route::get('/', [ParfumController::class, 'index'])->name('home');
+// 2. صفحة عرض العطور (الـ Boutique)
+Route::get('/boutique', [ParfumController::class, 'index'])->name('home');
+
+// 3. الصفحات العامة الأخرى
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
 
 Route::middleware('auth')->group(function () {
     
-   
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    
     Route::get('/order/confirm/{parfum}', [OrderController::class, 'confirm'])->name('orders.confirm');
     Route::post('/order/store', [OrderController::class, 'store'])->name('orders.store');
     Route::get('/my-orders', [OrderController::class, 'myOrders'])->name('orders.my');
 
+   
     Route::middleware(['admin'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -33,13 +47,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/orders', [OrderController::class, 'adminIndex'])->name('admin.orders');
         Route::post('/admin/orders/{order}/validate', [OrderController::class, 'validateOrder'])->name('orders.validate');
     });
-    Route::get('/about', function () {
-    return view('about');
-    })->name('about');
-
-    Route::get('/contact', function () {
-        return view('contact');
-    })->name('contact');
 });
 
 require __DIR__.'/auth.php';
